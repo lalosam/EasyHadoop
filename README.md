@@ -7,7 +7,7 @@ Installation scripts to install hadoop and its friends for a development environ
 
 This script download and install haddop in a **Pseudo-Distributed** configuration following the Getting Started tutorial: http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/SingleCluster.html#Pseudo-Distributed_Operation.
 
-The only prerequisites is to have  valid Java installation (Preferred Oracle Java 1.7)
+The only prerequisites is to have a valid Java installation (Preferred Oracle Java 1.7)
 
 This imply to have a JAVA_HOME environment variable set. If you are using "alternatives" to manage your java versions you can use the follow line in your **.bashrc** file:
 
@@ -29,7 +29,7 @@ and execute it on the terminal
 
 The script could ask you for your root password required to install some dependencies and to be able to work with the default target directory: **/use/local/hadoop**.
 
-If it necessary, the script will create a SSH key without password to allow the comunication between daemons.
+If it is necessary, the script will create a SSH key without password to allow the comunication between daemons and add it to the authorized_keys file.
 
 At the end of the execution the script will try to open two web pages, one is the NameNode web application and the other is the REsourceManager wep application.
 

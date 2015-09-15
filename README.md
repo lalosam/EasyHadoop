@@ -21,7 +21,7 @@ You only need to grant execution permission to the script
 ```shell
 sudo chmod +x hadoop.sh
 ```
-and execute it on the terminal
+and execute it in the terminal
 
 ```shell
 ./hadoop.sh
@@ -43,7 +43,7 @@ temp="/tmp/hadoop-temp"
 
 I've tested the script with 2.6.0, 2.7.0 and 2.7.1. Other versions could be supported without warranty.
 
-The script set the required environment variabeles in ~/.bashrc file. To start using hadoop cmmands is necessary to start an new terminal session to load the new parameters (or sourcing ~/.bashrc script)
+The script set the required environment variabeles in ~/.bashrc file. To start using hadoop commands, it's necessary to start an new terminal session to load the new parameters (or sourcing ~/.bashrc script)
 
 the **bin** folder is included in the PATH, then you can execute hadoop commands in any place.
 

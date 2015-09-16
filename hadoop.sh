@@ -31,6 +31,10 @@ sed 's_<configuration>_<configuration> \
     <property> \
         <name>fs.defaultFS</name> \
         <value>hdfs://localhost:9000</value> \
+    </property> \
+    <property> \
+        <name>hadoop.tmp.dir</name> \
+        <value>'$target'/data</value> \
     </property>_' core-site.xml.bak > core-site.xml
 mv hdfs-site.xml hdfs-site.xml.bak
 sed 's_<configuration>_<configuration> \

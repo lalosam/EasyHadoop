@@ -74,3 +74,17 @@ It **IS NOT** necessary to execute this script after the script **hadoop.sh**. h
 ### stop-hadoop.sh
 
 This script stop all the daemons started by the previous scripts.
+
+## HIVE
+
+### hive.sh
+
+This script works in the same way that hadoop.sh to download and configure hive, with the follow parameters:
+
+```
+hive_version=1.2.1
+target="/usr/local/hive"
+temp="/tmp/hive-temp"
+```
+
+After hive has been installed you are able to start hive from any place but you need to know that the embeded Derby DB will be created in that path. Then, you need to have enough privileges to create the **metastore_db** folder there. The suggstion is always start HIVE in the same location to only have one metastore_db.

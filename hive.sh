@@ -1,5 +1,5 @@
-#!/bin/bash -x
-echo 'Installing hadoop'
+#!/bin/bash -e
+echo 'Installing HIVE'
 hive_version=1.2.1
 target="/usr/local/hive"
 temp="/tmp/hive-temp"
@@ -40,5 +40,13 @@ grep -q "export HADOOP_USER_CLASSPATH_FIRST" "$HOME/.bashrc" && \
 
 $HADOOP_PREFIX/bin/hdfs dfs -mkdir -p /tmp
 $HADOOP_PREFIX/bin/hdfs dfs -mkdir -p /user/hive/warehouse
-$HADOOP_PREFIX/bin/hdfs dfs -chmod g+w /tmp
-$HADOOP_PREFIX/bin/hdfs dfs -chmod g+w /user/hive/warehouse
+$HADOOP_PREFIX/bin/hdfs dfs -chmod 777 /tmp
+$HADOOP_PREFIX/bin/hdfs dfs -chmod 777 /user/hive/warehouse
+
+echo ""
+echo "*****************************************************"
+echo "**                                                 **"
+echo "**                DONE !!                          **"
+echo "**                                                 **"
+echo "*****************************************************"
+echo ""

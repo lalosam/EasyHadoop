@@ -73,6 +73,12 @@ grep -q "export PATH=.*$HADOOP_PREFIX" "$HOME/.bashrc" && \
     sed "s|export PATH=.*$HADOOP_PREFIX.*|export PATH=\$PATH:$HADOOP_PREFIX/bin|" -i "$HOME/.bashrc" || \
     sed "$ a\export PATH=\$PATH:$HADOOP_PREFIX/bin" -i "$HOME/.bashrc"
 
+grep -q "export HADOOP_CONF_DIR" "$HOME/.bashrc" && \
+    sed "s|export HADOOP_CONF_DIR=.*|export HADOOP_CONF_DIR=$HADOOP_PREFIX/etc/hadoop" -i "$HOME/.bashrc" || \
+    sed "$ a\export HADOOP_CONF_DIR=$HADOOP_PREFIX/etc/hadoop" -i "$HOME/.bashrc"
+
+HADOOP_CONF_DIR=/mycluster/conf
+
 cd "$target"
 source $HOME/.bashrc
 bin/hdfs namenode -format

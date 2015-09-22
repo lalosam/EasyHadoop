@@ -81,7 +81,7 @@ This script stop all the daemons started by the previous scripts.
 
 This script works in the same way that hadoop.sh to download and configure hive, with the follow parameters:
 
-```
+```bash
 hive_version=1.2.1
 target="/usr/local/hive"
 temp="/tmp/hive-temp"

@@ -1,8 +1,8 @@
 #!/bin/bash -e
 echo 'Installing hadoop'
-hadoop_version=2.7.1
-target="/usr/local/hadoop"
-temp="/tmp/hadoop-temp"
+hue_version=3.9.0
+target="/usr/local/hue"
+temp="/tmp/hue-temp"
 sudo apt-get --assume-yes install ssh 
 sudo apt-get --assume-yes install rsync
 if [ ! -d '$temp' ]; then 
@@ -11,21 +11,22 @@ fi
 cd "$temp"
 
 
-if [ ! -f "hadoop-$hadoop_version.tar.gz" ]; then
-    wget http://www.us.apache.org/dist/hadoop/common/hadoop-$hadoop_version/hadoop-$hadoop_version.tar.gz
+if [ ! -f "hue-$hue_version.tgz" ]; then
+    wget https://dl.dropboxusercontent.com/u/730827/hue/releases/$hue_version/hue-$hue_version.tgz
 fi
 
-if [ -d  "hadoop-$hadoop_version" ]; then
-	rm -rf "hadoop-$hadoop_version"
+if [ -d  "hue-$hue_version" ]; then
+	rm -rf "hue-$hue_version"
 fi
-tar -xf hadoop-$hadoop_version.tar.gz
+tar -xf hue-$hue_version.tar.gz
 if [ -d  "$target" ]; then
 	sudo rm -rf "$target"
 fi
 sudo mkdir -p "$target"
 sudo chmod -R 777 "$target"
-mv hadoop-$hadoop_version/* "$target"
-cd "$target/etc/hadoop"
+
+make install
+cd "$target"
 mv core-site.xml core-site.xml.bak
 sed 's_<configuration>_<configuration> \
     <property> \
